@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # GalleryPhoto
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.4.
@@ -57,3 +58,7 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+=======
+# gallery-photo
+Angular project - photo-gallery
+>>>>>>> 8ac67ff8309a4ebfa0a78bdbb1a6f3a58e076c5d

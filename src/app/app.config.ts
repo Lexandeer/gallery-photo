@@ -10,6 +10,6 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes), provideFirebaseApp(() => initializeApp({ projectId: "gallery-photo-64a97", appId: "1:1012892453987:web:de2e424e9e9b97789bfc56", storageBucket: "gallery-photo-64a97.firebasestorage.app", apiKey: "AIzaSyBEjFBpWDQqcP2TfIbp5NnvJ5t9wqq755A", authDomain: "gallery-photo-64a97.firebaseapp.com", messagingSenderId: "1012892453987", projectNumber: "1012892453987", version: "2" })), provideAuth(() => getAuth()), provideFirestore(() => getFirestore())
+    provideRouter(routes), provideFirebaseApp(() => initializeApp({ projectId: "gallery-photo-64a97", appId: "1:1012892453987:web:de2e424e9e9b97789bfc56", storageBucket: "gallery-photo-64a97.firebasestorage.app", apiKey: "AIzaSyBEjFBpWDQqcP2TfIbp5NnvJ5t9wqq755A", authDomain: "gallery-photo-64a97.firebaseapp.com", messagingSenderId: "1012892453987"})), provideAuth(() => getAuth()), provideFirestore(() => getFirestore())
   ]
 };

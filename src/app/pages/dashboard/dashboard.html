@@ -5,7 +5,7 @@
       <div class="text-center">
         <h2 class="mb-4 text-primary">Ajouter vos photos</h2>
       </div>
-      <form [formGroup]="photoForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="photoForm" (ngSubmit)="saveData()">
         <!-- Champ pour le titre -->
         <div class="form-group">
           <label>Titre : </label>
@@ -36,3 +36,43 @@
   </div>
 </div>
 <br /><br />
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Titre</th>
+      <th scope="col">Description</th>
+      <th scope="col">Image</th>
+      <th scope="col">Likes</th>
+      <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @for ( data of photoData | async; track data.id) {
+       <tr>
+        <td>{{ data.title }}</td>
+        <td style="max-width: 100px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+          {{ data.description }}
+        </td>
+        <td>
+          <img [src]="data.imageUrl" alt="Image" width="100">
+        </td>
+        <td>{{ data.likes }}</td>
+        <td>
+          <button type="button" class="btn btn-primary" (click)="editData(data)">Edit</button>
+          &nbsp;
+          @if (data?.id) {
+            <button type="button" class="btn btn-danger" (click)="deleteData(data.id!)">Supprimer</button>
+            &nbsp;
+            <button type="button" class="btn btn-secondary" (click)="navigateToDetails(data.id!)">Details</button>
+          }
+        </td>
+      </tr>
+    }
+    </tbody>
+  </table>
+  <button class="btn btn-primary position-absolute end-0" routerLink="/gallery">
+    Voir Gallery
+  </button>
+</div>
+<br><br><br><br><br><br>

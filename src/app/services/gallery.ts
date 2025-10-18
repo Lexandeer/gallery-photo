@@ -30,7 +30,7 @@ export class GalleryService {
 
   // Supprimer une photo par son identifiant
   async deletePhoto(photoId: string): Promise<void> {
-    const photoRef = doc(this.firestore, photoId);
+    const photoRef = doc(this.firestore, 'photos', photoId);
     return await deleteDoc(photoRef);
   }
 }

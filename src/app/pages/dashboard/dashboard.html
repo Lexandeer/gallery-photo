@@ -28,7 +28,7 @@
         <!-- Bouton pour soumettre le formulaire -->
         <div>
           <button type="submit" class="btn btn-primary" [disabled]="!photoForm.valid || !photoForm.touched">
-            Ajouter
+            {{ isEditing ? 'Modifier' : 'Ajouter' }}
           </button>
         </div>
       </form>

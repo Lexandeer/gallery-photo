@@ -1,0 +1,33 @@
+/* Mise en forme des cartes de la galerie */
+.card {
+  margin-bottom: 20px;
+  min-height: 400px; /* hauteur minimale des cartes */
+  transition: transform 0.3s ease-in-out;
+}
+.card:hover {
+  transform: scale(1.02);
+}
+.card:active {
+  transform: scale(0.97);
+}
+
+.card-img-top {
+  width: 100%;
+  height: 200px; /* hauteur des images dans les cartes */
+  object-fit: cover;
+  background-color: #f0f7ff;
+}
+.card-body, .card-footer, .card-title, .card-text {
+  background-color: #f0f7ff;
+}
+.card-title {
+  padding: 10px;
+  color: #007bff;
+}
+.card-text {
+  padding: 10px;
+  color: #6c757d;
+}
+.card .btn {
+  margin-top: 10px;
+}

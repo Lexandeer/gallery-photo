@@ -1,1 +1,31 @@
-<p>gallery works!</p>
+<div class="container">
+  <br />
+  <button class="btn btn-primary" routerLink="/dashboard">Add photo</button>
+  <div class="row">
+  @for (data of photoData | async; track data.id) {
+    <div>
+      <br /><br />
+      @if ( data?.id ) {
+        <div class="card" (click)="navigateToDetails(data.id!)">
+          <img class="card-img-top" [src]="data.imageUrl ? data.imageUrl : 'https://via.placeholder.com/200' " alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{ data.title }}</h5>
+            <p class="card-text" style="max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+              {{ data.description }}
+            </p>
+            <a [routerLink]="['/details', data.id]" class="btn btn-primary">Détails</a>
+            <br /><br />
+            <div class="card-footer">
+              <button class="btn btn-danger position-absolute end-0" (click)="onLikes(data)">
+                Like <i class="bi bi-hand-thumbs-up-fill"></i> {{ data.likes }}
+              </button>
+              <div style="margin-top: 25px"></div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  }
+  </div>
+</div>
+<div style="margin-top: 100px"></div>

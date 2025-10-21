@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collection, collectionData, deleteDoc, doc, setDoc } from '@angular/fire/firestore'
+import { Firestore, collection, collectionData, deleteDoc, doc, setDoc, updateDoc, increment } from '@angular/fire/firestore'
 import { Photo } from '../models/photo.model'
 import { Observable } from 'rxjs'
 
@@ -32,5 +32,17 @@ export class GalleryService {
   async deletePhoto(photoId: string): Promise<void> {
     const photoRef = doc(this.firestore, 'photos', photoId);
     return await deleteDoc(photoRef);
+  }
+
+  // Aimer une photo (incrémenter son compteur de like )
+  async likePhoto(photo: Photo): Promise<void> {
+    if ( photo.id ) {
+      const photoRef = doc(this.firestore, 'photos', photo.id);
+      return await updateDoc(photoRef, { likes: increment(1)
+      });
+    } else {
+      console.error('impossible de liker une photo sans ID')
+      return Promise.reject('Missing photo ID')
+    }
   }
 }

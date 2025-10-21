@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { getStorage, ref, uploadBytes, getDownloadURL } from '@angular/fire/storage';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { Photo } from '../../models/photo.model';
 import { GalleryService } from '../../services/gallery';
 import { Observable } from 'rxjs';
@@ -9,7 +9,7 @@ import { AsyncPipe } from "@angular/common"
 
 @Component({
   selector: 'app-dashboard',
-  imports: [ReactiveFormsModule, AsyncPipe],
+  imports: [ReactiveFormsModule, AsyncPipe, RouterModule],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css'
 })
